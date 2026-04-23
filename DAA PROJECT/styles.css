@@ -1,0 +1,350 @@
+/* ================= GLOBAL STYLES ================= */
+:root {
+    --bg-color-1: #1f2937;
+    --bg-color-2: #374151;
+    --text-main: #e5e7eb;
+    --text-bright: #f9fafb;
+    --primary-blue: #2563eb;
+    --hover-blue: #1d4ed8;
+    --panel-bg: rgba(255, 255, 255, 0.08);
+    --border-light: rgba(255, 255, 255, 0.15);
+    --bar-color-start: #3b82f6;
+    --bar-color-end: #60a5fa;
+    --active-color: #f59e0b; /* orange */
+    --swap-color: #ef4444; /* red */
+    --sorted-color: #22c55e; /* green */
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, var(--bg-color-1), var(--bg-color-2));
+    color: var(--text-main);
+}
+
+/* ================= MAIN CONTAINER ================= */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 30px;
+    border-radius: 20px;
+    background: var(--panel-bg);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header & Nav */
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin: 0;
+    color: var(--text-bright);
+    letter-spacing: 1px;
+}
+
+.nav-btn {
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: var(--primary-blue);
+    color: white;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: var(--hover-blue);
+}
+
+/* ================= MAIN APP GRID ================= */
+.main-app-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* Controls Panel (Sidebar) */
+.controls-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+input[type=range] {
+    width: 100%;
+    cursor: pointer;
+}
+
+.algo-selection h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.algo-btns-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* ================= BUTTONS & DROPDOWNS FIX ================= */
+
+/* 1. Base Button Styles (General) */
+button {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: none;
+    background: #4b5563; 
+    color: #f9fafb;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-align: center;
+    width: 100%;
+}
+
+button:hover {
+    background: #6b7280;
+    transform: translateY(-1px);
+}
+
+/* 2. Selection Dropdown Fix */
+select {
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    background-color: #374151 !important; /* Dark Grey background */
+    color: #ffffff !important;           /* Force White text */
+    padding: 10px 35px 10px 15px;        /* Space for the arrow */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    width: auto;
+    
+    /* Custom white arrow */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+}
+
+/* 3. The actual list items (Options) */
+select option {
+    background-color: #1f2937 !important; /* Dark list background */
+    color: #ffffff !important;           /* White text for options */
+    padding: 12px;
+}
+
+/* Selected/Active state for Algo buttons */
+.algo-btn.active-algo {
+    background: var(--primary-blue) !important;
+    font-weight: bold;
+}
+
+/* Action Controls (Start/Pause) */
+.action-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.action-controls button { text-align: center; }
+
+.btn-start {
+    background: #059669 !important; /* Green */
+    grid-column: span 2;
+}
+
+.btn-start:hover { background: #047857 !important; }
+
+/* Visualizer Area */
+.visualizer-area {
+    display: flex;
+    flex-direction: column;
+}
+
+#bars-container {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 350px;
+}
+
+#bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Bar styling */
+.bar {
+    flex: 1;
+    margin: 0 2px;
+    border-radius: 4px;
+    background: linear-gradient(to top, var(--bar-color-start), var(--bar-color-end));
+    transition: height 0.2s ease, background-color 0.2s ease;
+    min-width: 5px;
+}
+
+/* Visual states for sorting */
+.bar.active { background: var(--active-color) !important; }
+.bar.swap { background: var(--swap-color) !important; }
+.bar.sorted { background: var(--sorted-color) !important; }
+
+/* Metrics Panel */
+.metrics {
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.divider {
+    margin: 40px 0;
+    border: 0;
+    border-top: 1px solid var(--border-light);
+}
+
+/* ================= COMPARISON SECTION ================= */
+.compare-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.compare-title {
+    text-align: center;
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--text-bright);
+}
+
+.compare-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.selector-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.vs {
+    font-weight: bold;
+    color: #9ca3af;
+    font-size: 1.2rem;
+}
+
+.btn-compare {
+    background: #d97706 !important; /* Orange */
+    width: auto !important;
+    padding: 10px 20px;
+}
+.btn-compare:hover { background: #b45309 !important; }
+
+.compare-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.panel {
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-light);
+    text-align: center;
+}
+
+.panel h3 { margin-top: 0; color: var(--text-bright); }
+
+/* ================= COMPARISON PANEL FIX ================= */
+.bars-compare {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 250px;
+    margin: 20px 0;
+    background: rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 10px;
+    
+    /* FIX: Stops bars from overlapping headers */
+    overflow: hidden; 
+    position: relative;
+}
+
+/* ================= RESPONSIVE MEDIA QUERIES ================= */
+
+@media (max-width: 900px) {
+    .main-app-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .algo-btns-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .algo-btn {
+        width: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .container { padding: 15px; }
+    h1 { font-size: 1.6rem; text-align: center; }
+    .header-nav { justify-content: center; }
+    
+    #bars-container { min-height: 250px; }
+    
+    .compare-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .compare-controls { flex-direction: column; }
+    .compare-controls button { width: 100%; }
+}

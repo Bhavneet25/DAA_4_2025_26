@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Sorting Studio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="header-nav">
+        <h1>Smart Sorting Studio</h1>
+        <a href="algorithms.html" class="nav-btn">📖 Learn Algorithms</a>
+    </div>
+
+    <div class="main-app-grid">
+        <aside class="controls-panel">
+            <div class="control-group">
+                <label for="speed">Animation Speed</label>
+                <input type="range" id="speed" min="1" max="100" value="50">
+            </div>
+
+            <div class="algo-selection">
+                <h3>Select Algorithm</h3>
+                <div class="algo-btns-list" id="algo-selector">
+                    <button class="algo-btn active-algo" onclick="setAlgo('bubble', this)">Bubble</button>
+                    <button class="algo-btn" onclick="setAlgo('selection', this)">Selection</button>
+                    <button class="algo-btn" onclick="setAlgo('insertion', this)">Insertion</button>
+                    <button class="algo-btn" onclick="setAlgo('merge', this)">Merge</button>
+                    <button class="algo-btn" onclick="setAlgo('quick', this)">Quick</button>
+                    <button class="algo-btn" onclick="setAlgo('heap', this)">Heap</button>
+                    <button class="algo-btn" onclick="setAlgo('counting', this)">Counting</button>
+                    <button class="algo-btn" onclick="setAlgo('radix', this)">Radix</button>
+                </div>
+            </div>
+
+            <div class="action-controls">
+                <button class="btn-start" onclick="startSort()">▶ Start</button>
+                <button onclick="pauseSort()">⏸ Pause</button>
+                <button onclick="resumeSort()">⏵ Resume</button>
+                <button class="btn-reset" onclick="resetArray()">🔁 Reset</button>
+            </div>
+        </aside>
+
+        <section class="visualizer-area">
+            <div id="bars-container">
+                <div id="bars"></div>
+            </div>
+            <div class="metrics" id="metrics-panel">
+                <span id="algoName">Bubble Sort</span> | 
+                <span id="timeComplexity">Time: O(n²)</span> | 
+                <span id="spaceComplexity">Space: O(1)</span>
+            </div>
+        </section>
+    </div>
+
+    <hr class="divider">
+
+    <div class="compare-section">
+        <h2 class="compare-title">⚔ Algorithm Comparison</h2>
+        
+        <div class="compare-controls">
+            <div class="selector-group">
+                <select id="algo1">
+                    <option value="bubble">Bubble Sort</option>
+                    <option value="selection">Selection Sort</option>
+                    <option value="insertion">Insertion Sort</option>
+                    <option value="merge">Merge Sort</option>
+                    <option value="quick">Quick Sort</option>
+                    <option value="heap">Heap Sort</option>
+                    <option value="counting">Counting Sort</option>
+                    <option value="radix">Radix Sort</option>
+                </select>
+                <span class="vs">VS</span>
+                <select id="algo2">
+                    <option value="bubble">Bubble Sort</option>
+                    <option value="selection">Selection Sort</option>
+                    <option value="insertion">Insertion Sort</option>
+                    <option value="merge">Merge Sort</option>
+                    <option value="quick">Quick Sort</option>
+                    <option value="heap">Heap Sort</option>
+                    <option value="counting">Counting Sort</option>
+                    <option value="radix">Radix Sort</option>
+                </select>
+            </div>
+            <button class="btn-compare" onclick="startComparison()">⚔ Compare Now</button>
+        </div>
+
+        <div class="compare-container">
+            <div class="panel">
+                <h3 id="leftTitle">ALGO 1</h3>
+                <div id="bars1" class="bars-compare"></div>
+                <p id="time1">Time: 0ms</p>
+            </div>
+            <div class="panel">
+                <h3 id="rightTitle">ALGO 2</h3>
+                <div id="bars2" class="bars-compare"></div>
+                <p id="time2">Time: 0ms</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="algorithms/bubblesort.js"></script>
+<script src="algorithms/selection.js"></script>
+<script src="algorithms/insertion.js"></script>
+<script src="algorithms/merge.js"></script>
+<script src="algorithms/quick.js"></script>
+<script src="algorithms/heap.js"></script>
+<script src="algorithms/counting.js"></script>
+<script src="algorithms/radix.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

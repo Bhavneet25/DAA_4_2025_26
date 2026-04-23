@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Algorithms | Smart Sorting Studio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Specific overrides for the Learn Page */
+        .theory-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: left;
+            margin-top: 20px;
+        }
+        .algo-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+        .algo-card:hover {
+            transform: scale(1.01);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .algo-card h2 {
+            color: #60a5fa;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        .algo-card p {
+            color: #d1d5db;
+            line-height: 1.6;
+        }
+        .stats {
+            margin-top: 15px;
+            display: flex;
+            gap: 20px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .stat-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        .back-link {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="back-link">
+        <a href="index.html" class="nav-btn">⬅ Back to Visualizer</a>
+    </div>
+
+    <h1>📚 Sorting Algorithms</h1>
+    <p style="margin-bottom: 30px; color: #9ca3af;">Understand the logic and complexity behind common Data Structures & Algorithms.</p>
+
+    <div class="theory-container">
+        
+        <div class="algo-card">
+            <h2>Bubble Sort</h2>
+            <p>A simple comparison-based algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted.</p>
+            <div class="stats">
+                <span class="stat-item">Time: O(n²)</span>
+                <span class="stat-item">Space: O(1)</span>
+            </div>
+        </div>
+
+        <div class="algo-card">
+            <h2>Selection Sort</h2>
+            <p>This algorithm divides the input list into two parts: a sorted sublist of items which is built up from left to right, and a sublist of the remaining unsorted items. It repeatedly finds the minimum element from the unsorted part and puts it at the beginning.</p>
+            <div class="stats">
+                <span class="stat-item">Time: O(n²)</span>
+                <span class="stat-item">Space: O(1)</span>
+            </div>
+        </div>
+
+        <div class="algo-card">
+            <h2>Insertion Sort</h2>
+            <p>Builds the final sorted array one item at a time. It is much less efficient on large lists than more advanced algorithms like quicksort, heapsort, or merge sort, but it performs well for small datasets or nearly sorted arrays.</p>
+            <div class="stats">
+                <span class="stat-item">Time: O(n²)</span>
+                <span class="stat-item">Space: O(1)</span>
+            </div>
+        </div>
+
+        <div class="algo-card">
+            <h2>Merge Sort</h2>
+            <p>A divide-and-conquer algorithm that was invented by John von Neumann in 1945. It divides the unsorted list into n sublists, each containing one element, and then repeatedly merges sublists to produce new sorted sublists until there is only one sublist remaining.</p>
+            <div class="stats">
+                <span class="stat-item">Time: O(n log n)</span>
+                <span class="stat-item">Space: O(n)</span>
+            </div>
+        </div>
+
+        <div class="algo-card">
+            <h2>Quick Sort</h2>
+            <p>Highly efficient sorting algorithm that uses a divide-and-conquer strategy. It picks an element as a 'pivot' and partitions the given array around the picked pivot. The efficiency depends heavily on the pivot selection strategy.</p>
+            <div class="stats">
+                <span class="stat-item">Time: O(n log n)</span>
+                <span class="stat-item">Space: O(log n)</span>
+            </div>
+        </div>
+
+        <div class="algo-card">
+            <h2>Heap Sort</h2>
+            <p>Comparison-based sorting technique based on Binary Heap data structure. It is similar to selection sort where we first find the maximum element and place the maximum element at the end. We repeat the same process for the remaining elements.</p>
+            <div class="stats">
+                <span class="stat-item">Time: O(n log n)</span>
+                <span class="stat-item">Space: O(1)</span>
+            </div>
+        </div>
+
+        <div class="algo-card">
+            <h2>Counting Sort</h2>
+            <p>A non-comparison sorting technique based on keys between a specific range. It works by counting the number of objects having distinct key values, and using arithmetic on those counts to determine the positions of each key value in the output sequence.</p>
+            <div class="stats">
+                <span class="stat-item">Time: O(n + k)</span>
+                <span class="stat-item">Space: O(k)</span>
+            </div>
+        </div>
+
+        <div class="algo-card">
+            <h2>Radix Sort</h2>
+            <p>Avoids comparison by creating and distributing elements into buckets according to their radix. For elements with more than one significant digit, this bucketing process is repeated for each digit, while preserving the ordering of the prior step.</p>
+            <div class="stats">
+                <span class="stat-item">Time: O(nk)</span>
+                <span class="stat-item">Space: O(n + k)</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
